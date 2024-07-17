@@ -25,6 +25,8 @@ if __name__ == "__main__":
         loop.create_task(main(loop, 'rose'))
     ]
 
+    #print(type(main(loop, 'jack')))
+
     loop.run_until_complete(asyncio.gather(*tasks))
 
     print("program over!")
