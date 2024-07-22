@@ -1,6 +1,9 @@
 import asyncio
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 import time
+import os
+
+
 
 # def func(name):
 #     print(f'task {name} is now on!')
@@ -32,33 +35,33 @@ import time
 
 
 ####################################################################
-def func(name):
-    print(f'task {name} is now on!')
-    # Do time intensive stuff...
-    time.sleep(3)
-    return 'Hello, ' + name
+# def func(name):
+#     print(f'task {name} is now on!')
+#     # Do time intensive stuff...
+#     time.sleep(3)
+#     return 'Hello, ' + name
 
 
-async def main(loop, name):
-    result = await loop.run_in_executor(None, func, name)
-    print(result)
+# async def main(loop, name):
+#     result = await loop.run_in_executor(None, func, name)
+#     print(result)
 
 
-if __name__ == "__main__":
-    start = time.time()
-    loop = asyncio.get_event_loop()
-    loop.set_default_executor(ThreadPoolExecutor())
+# if __name__ == "__main__":
+#     start = time.time()
+#     loop = asyncio.get_event_loop()
+#     loop.set_default_executor(ThreadPoolExecutor())
 
-    tasks = [
-        loop.create_task(main(loop, 'jack')),
-        loop.create_task(main(loop, 'rose'))
-    ]
+#     tasks = [
+#         loop.create_task(main(loop, 'jack')),
+#         loop.create_task(main(loop, 'rose'))
+#     ]
 
 
-    loop.run_until_complete(asyncio.gather(*tasks))
+#     loop.run_until_complete(asyncio.gather(*tasks))
 
-    print("program over!")
-    print(time.time() - start)
+#     print("program over!")
+#     print(time.time() - start)
 ####################################################################
 
 
@@ -78,3 +81,12 @@ if __name__ == "__main__":
 #     loop.set_default_executor(ThreadPoolExecutor())
 #     loop.run_until_complete(main(loop))
 ####################################################################
+
+
+#max_workers: int | None = None
+# 
+executor_1 = ProcessPoolExecutor(max_workers=3)
+executor_2 = ProcessPoolExecutor()
+
+cpu_count = os.cpu_count()
+print(f"プロセッサ数: {cpu_count}")
