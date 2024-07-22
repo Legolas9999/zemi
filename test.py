@@ -85,8 +85,11 @@ import os
 
 #max_workers: int | None = None
 # 
-executor_1 = ProcessPoolExecutor(max_workers=3)
-executor_2 = ProcessPoolExecutor()
+# executor_1 = ProcessPoolExecutor(max_workers=3)
+# executor_2 = ProcessPoolExecutor()
 
-cpu_count = os.cpu_count()
-print(f"プロセッサ数: {cpu_count}")
+# cpu_count = os.cpu_count()
+# print(f"プロセッサ数: {cpu_count}")
+
+
+
