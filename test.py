@@ -187,7 +187,7 @@ class EchoWebsocket:
 
     async def connect(self):
         self.session = ClientSession()
-        self.websocket = await self.session.ws_connect("wss://echo.websocket.org")
+        self.websocket = await self.session.ws_connect("ws://127.0.0.1:8888")
     
     async def send(self, message):
         await self.websocket.send_str(message)  # await the coroutine
@@ -197,6 +197,7 @@ class EchoWebsocket:
         return result.data
 
     async def close(self):
+        await self.websocket.close()
         await self.session.close()
 
 async def main():
