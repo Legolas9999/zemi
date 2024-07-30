@@ -204,7 +204,8 @@ async def main():
     echo = EchoWebsocket()
     await echo.connect()
     await echo.send("Hello World!")
-    print(await echo.receive())  # "Hello World!"
+    result = await echo.receive()
+    print(result) # "Hello World!"
     await echo.close()
 
 if __name__ == "__main__":
