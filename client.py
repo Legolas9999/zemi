@@ -135,7 +135,7 @@ import aiohttp
 
 
 # class EchoWebsocket:
-#     # 
+#     #
 #     async def connect(self):
 #         self.websocket = await session.ws_connect("wss://echo.websocket.org")
 
@@ -177,38 +177,76 @@ import aiohttp
 ####################################################################
 
 
-import asyncio
-from aiohttp import ClientSession
+# import asyncio
+# from aiohttp import ClientSession
 
-class EchoWebsocket:
-    def __init__(self):
-        self.websocket = None
-        self.session = None
+# class EchoWebsocket:
+#     def __init__(self):
+#         self.websocket = None
+#         self.session = None
 
-    async def connect(self):
-        self.session = ClientSession()
-        self.websocket = await self.session.ws_connect("ws://127.0.0.1:8888")
-    
-    async def send(self, message):
-        await self.websocket.send_str(message)  # await the coroutine
-    
-    async def receive(self):
-        result = await self.websocket.receive()
-        return result.data
+#     async def connect(self):
+#         self.session = ClientSession()
+#         self.websocket = await self.session.ws_connect("ws://127.0.0.1:8888")
 
-    async def close(self):
-        await self.websocket.close()
-        await self.session.close()
+#     async def send(self, message):
+#         await self.websocket.send_str(message)  # await the coroutine
 
-async def main():
-    echo = EchoWebsocket()
-    await echo.connect()
-    await echo.send("Hello World!")
-    result = await echo.receive()
-    print(result) # "Hello World!"
-    await echo.close()
+#     async def receive(self):
+#         result = await self.websocket.receive()
+#         return result.data
 
-if __name__ == "__main__":
-    asyncio.run(main())
+#     async def close(self):
+#         await self.websocket.close()
+#         await self.session.close()
+
+# async def main():
+#     echo = EchoWebsocket()
+#     await echo.connect()
+#     await echo.send("Hello World!")
+#     result = await echo.receive()
+#     print(result) # "Hello World!"
+#     await echo.close()
+
+# if __name__ == "__main__":
+#     asyncio.run(main())
 
 ####################################################################
+
+# from string import punctuation, ascii_letters, digits
+# import random
+
+# random.choice()
+# random.randint()
+
+# # パスワード生成に用いる文字
+# symbols = ascii_letters + digits + punctuation
+
+# # 乱数生成器をインスタンス化
+# secure_random = random.SystemRandom()
+
+# # 10文字のパスワードを生成
+# password = "".join(secure_random.choice(symbols) for i in range(10))
+# print(password)
+####################################################################
+
+
+# import string, secrets
+
+# alphabet = string.ascii_letters + string.digits
+# while True:
+#     password = "".join(secrets.choice(alphabet) for i in range(10))
+#     if (
+#         any(c.islower() for c in password)
+#         and any(c.isupper() for c in password)
+#         and sum(c.isdigit() for c in password) >= 3
+#     ):
+#         break
+
+# print(password)
+# print(sum([True,True,False]))
+# print('5'.isdigit())
+####################################################################
+
+from random import SystemRandom
+secure_rand_gen = SystemRandom()
