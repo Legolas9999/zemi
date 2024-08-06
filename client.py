@@ -248,5 +248,37 @@ import aiohttp
 # print('5'.isdigit())
 ####################################################################
 
-from random import SystemRandom
-secure_rand_gen = SystemRandom()
+# from random import SystemRandom
+
+# secure_rand_gen = SystemRandom()
+
+# print([secure_rand_gen.randrange(0, 21) for i in range(10)])
+
+# print(secure_rand_gen.randint(0, 21))
+
+####################################################################
+
+# import os
+
+# # バイトを五つ生成する
+# random_bytes = os.urandom(5)
+# print(random_bytes)
+####################################################################
+
+# import random
+# laughs = ["Hi", "Ho", "He"]
+# random.shuffle(laughs) 
+
+# print(laughs)
+# laughs = random.shuffle(laughs)
+# print(laughs)
+####################################################################
+
+# import random
+# laughs = ["Hi", "Ho", "He"]
+# print(random.choice(laughs)) 
+####################################################################
+
+import random
+laughs = ["Hi", "Ho", "He"]
+print(random.sample( laughs , 4 ))  
