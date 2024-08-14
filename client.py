@@ -279,6 +279,103 @@ import aiohttp
 # print(random.choice(laughs)) 
 ####################################################################
 
+# import random
+# laughs = ["Hi", "Ho", "He"]
+# print(random.sample( laughs , 4 ))  
+####################################################################
+
+
+# import random
+# # 1から8まで整数を一つランダムに生成する
+# print(random.randint(1, 8))
+
+####################################################################
+
+# import random
+
+# # 0から99の範囲で
+# print(random.randrange(100)) 
+
+# # 20から49の範囲で
+# print(random.randrange(20, 50)) 
+
+# # 10から19の範囲で、ステップは3
+# # 10,13,16,19
+# print(random.randrange(10, 20, 3)) 
+####################################################################
+
+# import random
+
+# # 0から1の範囲で、一つ浮動小数点数(float)を生成する
+# print(random.random())
+
+# # 1から8の範囲で、一つ浮動小数点数(float)を生成する
+# print(random.uniform(1, 8))
+####################################################################
+
+# import random
+
+# # 整数5で乱数生成器を初期化
+# random.seed() 
+# # 0から9の範囲で、整数を生成する
+# print(random.randrange(0, 10))
+# print(random.randrange(0, 10))
+
+
+# # 整数5で乱数生成器を初期化
+# random.seed() 
+# # 0から9の範囲で、整数を生成する
+# print(random.randrange(0, 10))
+# print(random.randrange(0, 10))
+
+####################################################################
+
+# import random
+
+# # 現在の乱数生成器の状態を取得
+# save_state = random.getstate() 
+# # 0から9の範囲で、整数を生成する
+# print(random.randrange(0, 10))
+# print(random.randrange(0, 10))
+
+# # 最初の状態にリセットする
+# random.setstate(save_state) 
+# # 0から9の範囲で、整数を生成する
+# print(random.randrange(0, 10))
+# print(random.randrange(0, 10))
+####################################################################
+# import random
+
+# # リセット
+# random.seed(None)
+# print(random.randint(0, 10))
+# print(random.randint(0, 10))
+
+# # リセット
+# random.seed()
+# print(random.randint(0, 10))
+# print(random.randint(0, 10))
+
+# # リセット
+# random.seed(None)
+# print(random.randint(0, 10))
+# print(random.randint(0, 10))
+####################################################################
+
+
 import random
-laughs = ["Hi", "Ho", "He"]
-print(random.sample( laughs , 4 ))  
+
+# 確率を指定
+probability = 0.3
+decision_1 = 0
+decision_2 = 0
+for i in range(10000):
+    # ランダムに0から1まで小数を生成する
+    if random.random() < probability:
+        #print("Decision_1 with probability 0.3")
+        decision_1 += 1
+    else:
+        #print("Decision_2 with probability 0.7")
+        decision_2 += 1
+
+print(decision_1, decision_2)
