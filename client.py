@@ -3,7 +3,6 @@ from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 import time
 import os
 import functools
-import aiohttp
 
 
 # def func(name):
@@ -363,19 +362,54 @@ import aiohttp
 ####################################################################
 
 
+# import random
+
+# # 確率を指定
+# probability = 0.3
+# decision_1 = 0
+# decision_2 = 0
+# for i in range(10000):
+#     # ランダムに0から1まで小数を生成する
+#     if random.random() < probability:
+#         #print("Decision_1 with probability 0.3")
+#         decision_1 += 1
+#     else:
+#         #print("Decision_2 with probability 0.7")
+#         decision_2 += 1
+
+# print(decision_1, decision_2)
+
+####################################################################
+
+
+from string import punctuation, ascii_letters, digits
 import random
+# 句読点　print(punctuation)
 
-# 確率を指定
-probability = 0.3
-decision_1 = 0
-decision_2 = 0
-for i in range(10000):
-    # ランダムに0から1まで小数を生成する
-    if random.random() < probability:
-        #print("Decision_1 with probability 0.3")
-        decision_1 += 1
-    else:
-        #print("Decision_2 with probability 0.7")
-        decision_2 += 1
+# アルファベット　print(ascii_letters)
 
-print(decision_1, decision_2)
+# 数字　print(digits)
+
+# パスワード生成に用いる文字
+symbols = ascii_letters + digits + punctuation
+# 乱数生成器をインスタンス化
+secure_random = random.SystemRandom()
+# 10文字のパスワードを生成
+password = "".join(secure_random.choice(symbols) for i in range(10))
+
+print(password)
+
+
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+ 
+symbol = "-"
+seq = ("a", "b", "c") # 字符串序列
+print ("".join( seq ))
+
+print(secure_random.choice(symbols) for i in range(10))
+
+gen = (secure_random.choice(symbols) for i in range(10))
+
+for i in gen:
+    print(i)
